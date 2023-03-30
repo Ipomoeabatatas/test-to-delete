@@ -1,0 +1,34 @@
+topic: ~product()
+
+proposal: %init Please select your shoes size and tell me what color you would prefer. $color=none $size=none
+
+concept:(colors): [black grey red tan]
+concept:(sizes):[35 36 37 38 39 40 41 42 43 44 45 46]
+
+u:({~i_want_to} {[them it]} {in} {color} _~colors and {["my size {is}" "in"]} {size} _~sizes)
+    $color=$1 $size=$2 ^execute(StatusExecutor, size_color, $size $color) alright, here they are in $color and size $size , would you like to buy them ?
+
+u:({["{~i_want_to} {[them it]} {in} size" "my size is"]} _~sizes and {["I want them in" "{in} {color}"]} _~colors)
+    $size=$1 $color=$2 ^execute(StatusExecutor, size_color, $size $color) alright, here they are in $color and size $size , would you like to buy them ?
+
+u:({~i_want_to} {[them it]} {in} {color} _~colors) $color=$1  ^execute(StatusExecutor, color, $color)
+    ^first["$size==none here it is in $color . now please tell me what size you would like."
+           "alright, here they are in $color and size $size , would you like to buy them?"]
+
+u:({my size {is}} _~sizes) $size=$1  ^execute(StatusExecutor, check, $size)
+    ^first["$color==none Okay, I selected the size $size . now please tell me what color do you prefer."
+           "alright, here they are in $color and size $size , would you like to buy them?"]
+
+proposal: %okay Okay, I selected the size $size
+
+u:([products product ~back]) okay, I'm going back. ^execute(FragmentExecutor, selection)
+
+u:(~home) ~confirmation, going home. ^execute(FragmentExecutor, home)
+
+u:([~yes "buy {it}" order]) perfect! ^execute(FragmentExecutor, upsell)
+
+u:(~no) Okay then. please select an other size or color.
+
+#Conflicts with "buy"
+#u:(~bye) ~bye ^execute(FragmentExecutor, splashscreen)
+u:(["goodbye" "see you" "bye bye"]) ~bye ^execute(FragmentExecutor, splashscreen)

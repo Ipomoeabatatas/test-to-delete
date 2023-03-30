@@ -1,0 +1,9 @@
+topic: ~collect()
+
+proposal: %init We at republic Polytechnic have a lot of internship opportunities, below are some companies we partnered with to achieve this.
+
+u:([demo "demo ticket"])  ~confirmation,  ^execute(StatusExecutor, clickdemocollect)
+
+u:(~home) ~confirmation, going home. ^execute(FragmentExecutor, home)
+
+u:(~bye) ~bye ^execute(FragmentExecutor, splashscreen)

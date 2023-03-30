@@ -1,0 +1,33 @@
+topic: ~returnmain()
+
+proposal: %init We have many apps related to our school, you can scan the QR code to download or find out more.
+
+proposal: %ticketfound ~confirmation, I found your items, tell me which one you want to return.
+
+dynamic: product_0
+
+dynamic: product_1
+
+dynamic: product_2
+
+dynamic: product_3
+
+dynamic: product_4
+
+u:(~home) ~confirmation, going home. ^execute(FragmentExecutor, home)
+
+u:([demo "demo ticket"])  ~confirmation  ^execute(StatusExecutor, clickdemoreturn)
+
+u:({~i_want_to} {return} ~product_0) ~product_0, ~confirmation  ^execute(StatusExecutor, clickreturn, 0)
+
+u:({~i_want_to} {return} ~product_1) ~product_1, ~confirmation  ^execute(StatusExecutor, clickreturn, 1)
+
+u:({~i_want_to} {return} ~product_2) ~product_2, ~confirmation  ^execute(StatusExecutor, clickreturn, 2)
+
+u:({~i_want_to} {return} ~product_3) ~product_3, ~confirmation  ^execute(StatusExecutor, clickreturn, 3)
+
+u:({~i_want_to} {return} ~product_4) ~product_4, ~confirmation  ^execute(StatusExecutor, clickreturn, 4)
+
+u:(~bye) ~bye ^execute(FragmentExecutor, splashscreen)
+
+

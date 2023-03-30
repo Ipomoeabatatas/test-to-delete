@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@drawable/ui_grad_white_r0_a90"
+    android:layout_height="match_parent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="520dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_dot_select"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="22sp"
+            android:button="@null"
+            android:width="130dp"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:drawableBottom="@drawable/ui_circle_half_stroke_blue"
+            android:text="@string/select" />
+
+        <View
+            android:layout_width="100dp"
+            app:layout_constraintStart_toStartOf="@+id/text_dot_select"
+            app:layout_constraintEnd_toEndOf="@+id/text_dot_custom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="15sp"
+            android:layout_height="3dp"
+            android:background="@color/colorSpeechBarDraker" />
+
+        <TextView
+            android:id="@+id/text_dot_custom"
+            app:layout_constraintStart_toEndOf="@+id/text_dot_select"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="22sp"
+            android:button="@null"
+            android:width="130dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:drawableBottom="@drawable/ui_circle_half_blue"
+            android:text="@string/customize" />
+
+
+        <View
+            android:layout_width="100dp"
+            app:layout_constraintStart_toStartOf="@+id/text_dot_custom"
+            app:layout_constraintEnd_toEndOf="@+id/text_dot_promo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="15sp"
+            android:layout_height="3dp"
+            android:background="@color/colorSpeechBarDraker" />
+
+        <TextView
+            android:id="@+id/text_dot_promo"
+            app:layout_constraintStart_toEndOf="@+id/text_dot_custom"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="22sp"
+            android:width="130dp"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:drawableBottom="@drawable/ui_circle_half_stroke_blue"
+            android:button="@null"
+            android:text="@string/promo" />
+
+        <View
+            android:layout_width="100dp"
+            app:layout_constraintStart_toStartOf="@+id/text_dot_promo"
+            app:layout_constraintEnd_toEndOf="@+id/text_dot_locate"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="15sp"
+            android:layout_height="3dp"
+            android:background="@color/colorSpeechBarDraker" />
+        <TextView
+            android:id="@+id/text_dot_locate"
+            app:layout_constraintStart_toEndOf="@+id/text_dot_promo"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="22sp"
+            android:width="130dp"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:drawableBottom="@drawable/ui_circle_half_stroke_blue"
+            android:button="@null"
+            android:text="@string/locate" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="10dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:background="@drawable/ui_white_shadow_r10"
+        app:layout_constraintTop_toTopOf="@id/column_left">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:text="@string/size"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            app:layout_constraintStart_toStartOf="@id/number_picker"
+            app:layout_constraintEnd_toEndOf="@id/number_picker"
+            app:layout_constraintBottom_toTopOf="@id/number_picker"/>
+        <NumberPicker
+            android:id="@+id/number_picker"
+            android:layout_width="100dp"
+            android:layout_height="200dp"
+            android:descendantFocusability="blocksDescendants"
+            android:theme="@style/NumberPickerText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
+
+
+    <ViewSwitcher
+        android:id="@+id/image_switcher"
+        android:layout_marginTop="20dp"
+        android:layout_width="800dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/button_home_products"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:inAnimation="@anim/fade_in_500ms"
+        android:outAnimation="@anim/fade_out_500ms" >
+
+        <ImageView
+            android:id="@+id/image_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/item_name"
+            android:src="@drawable/it_dress_man_grey" />
+
+        <ImageView
+            android:id="@+id/image_secondary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/item_name"
+            android:src="@drawable/it_dress_man_red" />
+    </ViewSwitcher>
+
+
+
+    <LinearLayout
+        android:id="@+id/column_left"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/button_back_products"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button android:id="@+id/button_color_black"
+            android:layout_width="match_parent"
+            android:background="@drawable/ui_white_r30"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:layout_marginEnd="2dp"
+            android:textAllCaps="false"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/black"
+            android:drawableStart="@drawable/ui_circle_grad_black"
+            android:layout_marginBottom="20dp"
+            android:text="@string/black" />
+        <Button android:id="@+id/button_color_grey"
+            android:layout_width="match_parent"
+            android:background="@drawable/ui_white_r30"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:layout_marginEnd="2dp"
+            android:textAllCaps="false"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="20dp"
+            android:drawableStart="@drawable/ui_circle_grad_grey"
+            android:text="@string/grey" />
+        <Button android:id="@+id/button_color_tan"
+            android:layout_width="match_parent"
+            android:background="@drawable/ui_white_r30"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textAllCaps="false"
+            android:layout_marginEnd="2dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/black"
+            android:drawableStart="@drawable/ui_circle_grad_tan"
+            android:text="@string/tan" />
+        <Button android:id="@+id/button_color_red"
+            android:layout_width="match_parent"
+            android:background="@drawable/ui_white_r30"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textAllCaps="false"
+            android:layout_marginEnd="2dp"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="10dp"
+            android:drawableStart="@drawable/ui_circle_grad_red"
+            android:text="@string/red" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_back_products"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="10dp"
+        android:textSize="30sp"
+        android:text="@string/other"
+        android:textColor="@color/dark_gray"
+        android:textAllCaps="false"
+        android:background="@drawable/ui_white_r30"
+        android:backgroundTint="@color/light_gray"
+        android:drawableStart="@drawable/ic_back"
+        android:padding="10dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        />
+
+    <Button
+        android:id="@+id/button_home_products"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_back_products"
+        android:layout_margin="10dp"
+        android:textSize="30sp"
+        android:text="@string/home"
+        android:textColor="@color/dark_gray"
+        android:textAllCaps="false"
+        android:background="@drawable/ui_white_r30"
+        android:backgroundTint="@color/light_gray"
+        android:padding="10dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        />
+
+    <TextView
+        android:id="@+id/view_in_Stock"
+        android:background="@drawable/ui_grad_red_r10_a0"
+        android:padding="10dp"
+        android:textAlignment="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/outStock"
+        android:textSize="30sp"
+        android:layout_marginEnd="10dp"
+        android:paddingEnd="15dp"
+        android:paddingStart="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/image_switcher"/>
+
+    <Button
+        android:id="@+id/button_buy_products"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/ui_grad_blue_r30_a0"
+        android:drawableEnd="@drawable/ic_forward_white"
+        android:padding="10dp"
+        android:textAllCaps="false"
+        android:paddingStart="20dp"
+        android:paddingEnd="15dp"
+        android:text="@string/buy"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/layoutSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ui_grad_blue_r30_a0"
+        app:layout_constraintEnd_toStartOf="@id/button_buy_products"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp"
+        android:visibility="invisible"
+        >
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/size"
+            android:textSize="30sp"/>
+
+        <EditText
+            android:id="@+id/text_size"
+            android:textSize="30sp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textColor="@color/white"
+            android:layout_marginEnd="25dp"
+            android:inputType="number" />
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
